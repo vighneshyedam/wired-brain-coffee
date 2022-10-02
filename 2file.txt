@@ -1,0 +1,22 @@
+FROM python:3.6
+
+WORKDIR /app
+
+USER vighnesh
+
+LABEL creator="vighnesh"
+LABEL version="1.0.0"
+
+ENV username=${vighnesh yedama}
+
+ARG creator=vighnesh
+
+COPY unicorn_app/requirements.txt ./
+
+RUN pip install -r requirements.txt
+
+COPY unicorn_app /app
+
+EXPOSE 8080
+
+CMD["python","app.py"]
