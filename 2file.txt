@@ -11,8 +11,6 @@ ENV username=${vighnesh_yedama}
 
 ARG creator=vighnesh
 
-COPY unicorn_app/requirements.txt ./
-
 RUN python -m pip install --upgrade pip
 
 RUN python -m pip install flask
