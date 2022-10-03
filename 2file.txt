@@ -7,16 +7,18 @@ USER vighnesh
 LABEL creator="vighnesh"
 LABEL version="1.0.0"
 
-ENV username=${vighnesh yedama}
+ENV username=${vighnesh_yedama}
 
 ARG creator=vighnesh
 
 COPY unicorn_app/requirements.txt ./
 
-RUN pip install -r requirements.txt
+RUN python -m pip install --upgrade pip
 
-COPY unicorn_app /app
+RUN python -m pip install flask
+
+COPY . /app
 
 EXPOSE 8080
 
-CMD["python","app.py"]
+CMD ["python","app.py"]
